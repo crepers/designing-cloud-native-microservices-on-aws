@@ -6,7 +6,7 @@ _[<02 커피 숍 시나리오로 돌아 가기](../02-coffee-shop-scenario/READM
 
 
 #### :bulb: 팁:
-비즈니스 시나리오에서 이벤트를 캡처할 때 도메인 전문가가 기술적일 수도 있고 아닐 수도 있다는 점에 유의하십시오. **공용 언어(ubiquitous language)**를 사용하여 소통하세요.
+비즈니스 시나리오에서 이벤트를 캡처할 때 도메인 전문가가 기술적일 수도 있고 아닐 수도 있다는 점에 유의하십시오. **공용 언어(ubiquitous language)** 를 사용하여 소통하세요.
 -이벤트 발견 프로세스는 기술적이지 않아야 합니다.
 -핵심 비즈니스 가치에 집중하세요.
 -트리거 및 결과 파악하세요.
@@ -29,7 +29,7 @@ _[<02 커피 숍 시나리오로 돌아 가기](../02-coffee-shop-scenario/READM
 
 ### 명령 및 이벤트 매핑
 
-이제 *명령(Commands)*을 추가해 보겠습니다. 명령은 이벤트를 발생시키는 트리거, 조치 또는 의도입니다. 파란색 스티커 메모로 라벨을 붙입니다. 명령에 현재 시제를 사용하십시오.
+이제 *명령(Commands)* 을 추가해 보겠습니다. 명령은 이벤트를 발생시키는 트리거, 조치 또는 의도입니다. 파란색 스티커 메모로 라벨을 붙입니다. 명령에 현재 시제를 사용하십시오.
 
 ![](../img/coffee-shop-role-trigger-v2.png?)
 
@@ -82,9 +82,9 @@ From technical viewpoint, we can adopt pub-sub mechanism to deal with this scena
 
 ### 애그리거트(Aggregate, 집합체)
 
-지금까지는 중심 요소 "(?)"가 비즈니스 기능을 제공하고 *역할*에서 *명령*을 수락하거나 거부할 책임이 있다는 것을 알고 계셨을 것입니다. 이를 **"애그리거트(Aggregate)"**라고 합니다.
+지금까지는 중심 요소 "(?)"가 비즈니스 기능을 제공하고 *역할*에서 *명령*을 수락하거나 거부할 책임이 있다는 것을 알고 계셨을 것입니다. 이를 **"애그리거트(Aggregate)"** 라고 합니다.
 
-그러나 초기 단계에서는 참가자들이 *이벤트* 및 *명령* 수집에 집중하도록 권장합니다. 이러한 개체 간의 관계를 구축하는데 더 집중하십시오. Aggregate는 일반적으로 참가자가 개념을 파악하려고 할 때 가장 혼란스럽습니다. 노란색 스티커에 고정하고 지금은 이름을 비워 두거나 **물음표**로 표시하면 됩니다. 팀이 도메인에 대해 완전히 이해할 때까지 이름 지정을 연기하십시오.
+그러나 초기 단계에서는 참가자들이 *이벤트* 및 *명령* 수집에 집중하도록 권장합니다. 이러한 개체 간의 관계를 구축하는데 더 집중하십시오. Aggregate는 일반적으로 참가자가 개념을 파악하려고 할 때 가장 혼란스럽습니다. 노란색 스티커에 고정하고 지금은 이름을 비워 두거나 **물음표** 로 표시하면 됩니다. 팀이 도메인에 대해 완전히 이해할 때까지 이름 지정을 연기하십시오.
 
 
 ### 애그리거트 이름 지정
@@ -93,17 +93,7 @@ From technical viewpoint, we can adopt pub-sub mechanism to deal with this scena
 
 ![](../img/itguy-outsourcing.png)
 
-*Aggregates* are logical groups of *Commands* and *Events* that make sense to think about them as a single unit within the business process.
-
-With more of the scenarios being played out, the name for the Aggregate should fall in place naturally.
-
-Here are some examples of Aggregate naming convention:
-* By Nouns
-* By Gerunds (Verb with - ing)
-
-No matter which convention you favor, remember to present the **"ability"** of the aggregate, that means traverse each *Command* the *Aggregate* is received, and make sure each event occurred is reasonable.
-
-*애그리거트(Aggregate)*는 *명령* 및 *이벤트*의 논리적 그룹으로 비즈니스 프로세스 내에서 단일 단위로 생각하는 것이 합리적입니다.
+*애그리거트(Aggregate)* 는 *명령* 및 *이벤트* 의 논리적 그룹으로 비즈니스 프로세스 내에서 단일 단위로 생각하는 것이 합리적입니다.
 
 더 많은 시나리오가 진행됨에 따라 애그리거트의 이름이 자연스럽게 배치되어야 합니다.
 
@@ -111,7 +101,7 @@ No matter which convention you favor, remember to present the **"ability"** of t
 * 명사
 * 동명사 별 (동사-ing)
 
-어떤 규칙을 선호하든 간에 *명령*이 수신될 때마다 *애그리거트*를 통과한다는 의미인 **"기능"**를 제시해야 하며, 발생한 각 이벤트가 적절한지 확인해야 합니다.
+어떤 규칙을 선호하든 간에 *명령* 이 수신될 때마다 *애그리거트* 를 통과한다는 의미인 **"기능"** 를 제시해야 하며, 발생한 각 이벤트가 적절한지 확인해야 합니다.
 
 
 ### 경계 컨텍스트(Bounded Context) 형성
@@ -123,11 +113,11 @@ No matter which convention you favor, remember to present the **"ability"** of t
 -명령 B를 사용하는 조건을 수행하는 동안 View A도 필요합니다.
 -명령 A와 명령 B는 하나의 모듈에 함께 있으면 좋을 수 있습니다.
 
-**이 응집력있는 애그리거트를 함께 원형으로 묶으면 경계가 자연스럽게 설정됩니다. **
+**이 응집력있는 애그리거트를 함께 원형으로 묶으면 경계가 자연스럽게 설정됩니다.**
 
 ![](../img/bcmapping.png)
 
-여러 개의 제한된 컨텍스트를 파악하는 동안 서로간에 일부 상호 관계가 있고 일부 제한된 컨텍스트가 업스트림 역할을 하고 이들 중 일부는 다운 스트림 역할을 합니다. **Eric Evans**의 관점에서 볼 때, 9 가지 유형의 상관 관계가 있습니다.
+여러 개의 제한된 컨텍스트를 파악하는 동안 서로간에 일부 상호 관계가 있고 일부 제한된 컨텍스트가 업스트림 역할을 하고 이들 중 일부는 다운 스트림 역할을 합니다. **Eric Evans** 의 관점에서 볼 때, 9 가지 유형의 상관 관계가 있습니다.
 
 ![](../img/legacy-bc.png)
 
