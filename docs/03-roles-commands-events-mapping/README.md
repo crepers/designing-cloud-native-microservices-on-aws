@@ -1,89 +1,95 @@
-_[< back to 02 Coffee Shop Scenario](../02-coffee-shop-scenario/README.md)_
+_[<02 커피 숍 시나리오로 돌아 가기](../02-coffee-shop-scenario/README.md)_
 
-## Roles, Commands and Events Mapping
+## 역할, 명령 및 이벤트 매핑
 
-### Key Business events in the coffeeshop
+### 커피 숍의 주요 비즈니스 이벤트
 
-#### :bulb: Tips:
-When capturing Events in business scenarios, be aware that domain experts may or may not be technical. Use **ubiquitous language** to communicate.
-- Events discovering process should not be technical
-- Focus on the core business value
-- Figure out trigger and result
+
+#### :bulb: 팁:
+비즈니스 시나리오에서 이벤트를 캡처할 때 도메인 전문가가 기술적일 수도 있고 아닐 수도 있다는 점에 유의하십시오. **공용 언어(ubiquitous language)**를 사용하여 소통하세요.
+-이벤트 발견 프로세스는 기술적이지 않아야 합니다.
+-핵심 비즈니스 가치에 집중하세요.
+-트리거 및 결과 파악하세요.
 
 ![](../img/coffee-shop-events-v2.png?)
 
-**An example of the immutable events occurred:**
-* Menu offered
-* Ordered 2 cups of Americano
-* Completed payment
-* Received receipt
-* Seat occupied
-* Order received
-* Coffee prepared
-* Customer left premise
-* Cleaned up table
 
-You can always arrange these events sequentially in the timeline where it occurred.
+**불변 이벤트가 발생한 예**
+* 메뉴를 제공합니다.
+* 아메리카노 2잔 주문합니다.
+* 결제가 완료되었습니다.
+* 영수증을 받습니다.
+* 좌석을 점유합니다.
+* 주문을 접수합니다.
+* 커피를 준비합니다.
+* 고객이 떠났습니다.
+* 테이블을 정리합니다.
 
-### Commands and Events mapping
+언제든지 이러한 이벤트가 발생한 타임 라인에서 순차적으로 정렬할 수 있습니다.
 
-Now, let's add in *Commands*. Commands are triggers, actions or intention that result in the event. Label them with a blue sticky note. Use present tense for Commands.
+### 명령 및 이벤트 매핑
+
+이제 *명령(Commands)*을 추가해 보겠습니다. 명령은 이벤트를 발생시키는 트리거, 조치 또는 의도입니다. 파란색 스티커 메모로 라벨을 붙입니다. 명령에 현재 시제를 사용하십시오.
 
 ![](../img/coffee-shop-role-trigger-v2.png?)
 
-### Roles
+### 역할
 
-As you explore these events, think about the key players involved in these Events. We call them Roles. Roles can represent a human or a system. Use a yellow sticky note to represent them. You should end up with something as follow.
+이러한 이벤트를 탐색하면서 이러한 이벤트에 관련된 주요 플레이어에 대해 생각하십시오. 우리는 그것들을 역할이라고 부릅니다. 역할은 사람이나 시스템을 나타낼 수 있습니다. 노란색 스티커 메모를 사용하여 표현하십시오. 당신은 다음과 같은 것을 끝내야합니다.
 
 ![](../img/coffee-shop-event-trigger-v2.png?)
 
-The roles involved would be:
-* Customer
-* Cashier
-* Barista
-* Waiter
+
+관련된 역할은 다음과 같습니다.
+* 고객
+* 캐셔
+* 바리스타
+* 웨이터
 
 ![](../img/coffee-shop-role-trigger-v3.png)
 
-Commands can be triggered by another event, person or even systems, both internal or external.
 
-We shall call the interface between the *Command* and *Event* as a "(?)" for now. This is a key element in serving the requests, process it internally, and once the process finished, results in the Event.
+명령은 내부 또는 외부의 다른 이벤트, 사람 또는 시스템에 의해 트리거 될 수 있습니다.
 
-Sometimes, "(?)" could also communicate with other business capability provider, or external system with the Event as an outcome.
+지금은 *명령(Command)* 과 *이벤트(Event)* 사이의 인터페이스를 "(?)"라고 합니다. 이것은 요청을 제공하고 내부적으로 처리하는 핵심 요소이며 프로세스가 완료되면 이벤트가 발생합니다.
 
+때때로 "(?)"는 다른 비즈니스 기능 제공자 또는 이벤트와 함께 외부 시스템과도 통신할 수 있습니다.
 <!--
 From technical viewpoint, we can adopt pub-sub mechanism to deal with this scenario.
 -->
-### Exceptions or risky events
 
-Throughout the events exploration journey, there will be many different sticky notes pasted on the wall and not all events will have a smooth flow.
+### 예외 또는 위험한 이벤트
 
-To do it in a cost-effective way, take the most risky journey and explore the exceptions. You can find more events from this and extend the journey to enrich the business flow.
+이벤트 탐색 활동을 통해 벽에 다양한 스티커 메모가 붙여질 것이며 모든 이벤트가 순조롭게 진행되는 것은 아닙니다.
 
-### Re-think solutions to serve risky events
+비용 효율적인 방법으로 수행하려면 가장 위험한 여정을 택하고 예외 사항을 살표보십시오. 이를 통해 더 많은 이벤트를 찾고 비즈니스 흐름을 더욱 풍부하게 만들 수 있습니다.
 
-Represent these failure scenarios with red sticky notes. For example, think about the consequences in the business flow in the coffee shop scenario.
+### 위험한 이벤트에 대처하기 위한 해결책을 다시 생각하십시오
 
-* What if the customer ordered coffee without giving a table number?
-* What if the barista made a wrong order?
+빨간색 스티커 메모로 이러한 실패 시나리오를 나타냅니다. 예를 들어, 커피숍 시나리오에서 비즈니스 흐름의 결과에 대해 생각해 보십시오.
+
+* 고객이 테이블 번호를 알려주지 않고 커피를 주문했다면 어떻게 되나요?
+* 바리스타가 주문을 잘못 만들면 어떻게 되나요?
 
 ![](../img/coffee-shop-risk-v2.png?)
 
-Regardless if it's a failure or mistake, the customer experience will be impacted. There is a need to re-think about these issues to sieve out further actions to prevent or solve these issues.
+그것이 실패 또는 실수에 관계없이 고객 경험에 영향을 미칩니다. 이러한 문제를 예방하거나 해결하기 위한 추가 조치를 선별하기 위해 이러한 문제에 대해 다시 생각할 필요가 있습니다.
 
-Although not essential, this step could help you to **handle business scenario which you were not familiar with before.**
+필수는 아니지만, 이 단계를 통해 이전에 잘 알지 못했던 **비즈니스 시나리오를 처리하는데 도움이 될 수 있습니다.**
 
-Replay the scenarios forward and back, each time dropping off some of the questions, risk or exceptions posted and the pieces will start to grow into a more elaborate story.
+시나리오를 앞뒤로 재생하고, 매번 게시된 질문, 위험 또는 예외 중 일부를 삭제하면 그 내용이 보다 정교한 이야기로 확대되기 시작합니다.
 
-### Aggregate
 
-Until now, you may have realized that the central element "(?)" provides business capability and owns the responsibility to accept or reject *Commands* from the *Role*. This is called **"Aggregate"**.
+### 애그리거트(Aggregate, 집합체)
 
-However, at the early stage, encourage participants to focus on gathering *Events* and *Commands*. Focus more on building the relationship between these objects. An Aggregate will usually create the most confusion as participants try to grasp its concept. Try to pin them on a yellow sticker and leave the name empty at the moment, maybe just mark it as a **question mark**. Try to defer naming until team has fully knowledge of the domain.
+지금까지는 중심 요소 "(?)"가 비즈니스 기능을 제공하고 *역할*에서 *명령*을 수락하거나 거부할 책임이 있다는 것을 알고 계셨을 것입니다. 이를 **"애그리거트(Aggregate)"**라고 합니다.
 
-### Aggregate Naming
+그러나 초기 단계에서는 참가자들이 *이벤트* 및 *명령* 수집에 집중하도록 권장합니다. 이러한 개체 간의 관계를 구축하는데 더 집중하십시오. Aggregate는 일반적으로 참가자가 개념을 파악하려고 할 때 가장 혼란스럽습니다. 노란색 스티커에 고정하고 지금은 이름을 비워 두거나 **물음표**로 표시하면 됩니다. 팀이 도메인에 대해 완전히 이해할 때까지 이름 지정을 연기하십시오.
 
-> Another example for IT guy outsourcing, project management
+
+### 애그리거트 이름 지정
+
+> IT 담당자 아웃소싱, 프로젝트 관리의 또 다른 예
 
 ![](../img/itguy-outsourcing.png)
 
@@ -97,29 +103,40 @@ Here are some examples of Aggregate naming convention:
 
 No matter which convention you favor, remember to present the **"ability"** of the aggregate, that means traverse each *Command* the *Aggregate* is received, and make sure each event occurred is reasonable.
 
-### Bounded Context forming up
+*애그리거트(Aggregate)*는 *명령* 및 *이벤트*의 논리적 그룹으로 비즈니스 프로세스 내에서 단일 단위로 생각하는 것이 합리적입니다.
 
-With more and more Aggregates being captured, you may find that several Aggregates are cohesive, others are not. There is a simple pattern to help you form up the boundary to have a clear bounded context.
+더 많은 시나리오가 진행됨에 따라 애그리거트의 이름이 자연스럽게 배치되어야 합니다.
 
-- Command A is fired and it causes Event A
-- Event A provides information View A
-- View A is also needed while doing a condition that uses Command B
-- Command A and Command B  might be good to be in one module together
+다음은 애그리거트 명명 규칙의 몇 가지 예입니다.
+* 명사
+* 동명사 별 (동사-ing)
 
-**Circle these cohesive aggregates together, the boundary is naturally established.**
+어떤 규칙을 선호하든 간에 *명령*이 수신될 때마다 *애그리거트*를 통과한다는 의미인 **"기능"**를 제시해야 하며, 발생한 각 이벤트가 적절한지 확인해야 합니다.
+
+
+### 경계 컨텍스트(Bounded Context) 형성
+
+점점 더 많은 애그리거트가 캡처됨에 따라 여러 애그리거트가 응집력이 있고 다른 애그리거트가 그렇지 않다는 것을 알 수 있습니다. 명확한 경계 컨텍스트를 갖도록 경계를 형성하는데 도와주는 간단한 패턴이 있습니다.
+
+-명령 A가 실행되어 이벤트 A가 발생합니다.
+-이벤트 A는 View A에 대한 정보를 제공합니다.
+-명령 B를 사용하는 조건을 수행하는 동안 View A도 필요합니다.
+-명령 A와 명령 B는 하나의 모듈에 함께 있으면 좋을 수 있습니다.
+
+**이 응집력있는 애그리거트를 함께 원형으로 묶으면 경계가 자연스럽게 설정됩니다. **
 
 ![](../img/bcmapping.png)
 
-While you figure out several bounded contexts, there are some co-relationships between each other, some bounded context play the upstream role, some of these play the downstream role. From **Eric Evans'** perspective, there are 9 types of corelationships.
+여러 개의 제한된 컨텍스트를 파악하는 동안 서로간에 일부 상호 관계가 있고 일부 제한된 컨텍스트가 업스트림 역할을 하고 이들 중 일부는 다운 스트림 역할을 합니다. **Eric Evans**의 관점에서 볼 때, 9 가지 유형의 상관 관계가 있습니다.
 
 ![](../img/legacy-bc.png)
 
-> Context Maps could reflect the collaborative or even organizational teams' relationships between different Bounded Contexts in your systems.
+> 컨텍스트 맵은 시스템에서 서로 다른 경계 컨텍스트 간의 협업 팀 또는 조직 팀의 관계를 반영할 수 있습니다.
 
-It is sometimes worth to do a "Bounded Context Mapping" which can uncover what are some of the dependencies, what's the impact scope when upstream (e.g. API contract) has changes, and how to prevent harmful downstream impact of it.
+종속성 중 일부가 무엇인지, 업스트림 (예: API 계약)이 변경될 때의 영향 범위가 무엇인지, 그리고 유해한 다운 스트림 영향을 방지하는 방법을 알아낼 수 있는 "경계 컨텍스트 매핑(Bounded Context Mapping)"을 수행하는 것이 때때로 가치가 있습니다.
 
-> Recommend to read [Bounded Context Mapping - by Domain Driven Design Taiwan Community - Eason Kuo](https://www.slideshare.net/YiChengKuo1/implementing-domaindriven-design-study-group-chapter-3-context-maps) for more details.
+> 자세한 내용은 [Bounded Context Mapping - by Domain Driven Design Taiwan Community - Eason Kuo](https://www.slideshare.net/YiChengKuo1/implementing-domaindriven-design-study-group-chapter-3-context-maps)를 참조하십시오.
 
-Next, let's look at how we can translate all these into modeling into development work.
+다음으로, 이 모든 것을 모델링으로 개발 작업으로 전환하는 방법을 살펴보겠습니다.
 
-[Next: 04 Modeling and Development >](../04-modeling-and-development/README.md)
+[다음: 04 모델링 및 개발 >](../04-modeling-and-development/README.md)

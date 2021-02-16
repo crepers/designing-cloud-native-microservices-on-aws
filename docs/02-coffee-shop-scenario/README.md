@@ -1,41 +1,42 @@
-_[< back to 01 Hands-on Events Exploring](../01-hands-on-events-exploring/README.md)_
+_[< 01 Hands-on Events 탐색으로 돌아가기](.../01-hands-on events-exploring/README.md)_
 
-# Cafe business scenario
+# 카페 비즈니스 시나리오
 
-Let's dive deeper into how Event Storming works using a simple scenario to walk through the process - **Getting a cup of coffee in a cafe.**
+**카페에서 커피 한 잔 마시기**라는 간단한 시나리오를 사용하여 Event Storming이 어떻게 작동하는지 자세히 살펴 보겠습니다.
 
-*The following images are provided by pixabay with free license.*
+
+*다음 이미지는 pixabay에서 무료 라이센스로 제공한 것입니다.*
 
 ![](../img/coffee-shop-1.png)
 
-*It's a sunny, warm afternoon. You are looking for a nice cafe for a cup of coffee and to think about how to come up with a proposal for a new marketing event.*
+*화창하고 따뜻한 오후입니다. 당신은 커피 한 잔을 위한 멋진 카페를 찾고 있으며 새로운 마케팅 이벤트에 대한 제안을 내놓는 방법을 생각하고 있습니다.*
 
-*At the corner of a street, you found a rustic looking cafe. You made a phone call to get a colleague to meet you there as well.*
+*길모퉁이에서 소박한 카페를 발견했습니다. 동료를 거기서 만나기 위해 전화를 걸었습니다.*
 
 ![](../img/coffee-shop-2.png)
 
-*You walked into the cafe and was immediately greeted by the huge, enchanting menu on the wall. There is a wide variety of beverage to choose from. The counter staff welcomed you and you placed an order for two Americano. He asks you to have a seat and the coffee will served to you in a few moment.*
+*당신은 카페에 들어서자마자 벽에 걸린 거대한 메뉴를 보았습니다. 선택할 수 있는 다양한 음료가 있었습니다. 카운터 직원이 반갑게 맞이해주었고 아메리카노 2개를 주문하셨습니다. 자리에 앉으면 잠시 후 커피가 제공됩니다.*
 
 ![](../img/coffee-shop-3.png)
 
-*The seats near the windows are mostly occupied. You looked for a table with 4 seats as they look more comfortable,*
+*창가 좌석들은 대부분 자리가 있었습니다. 더 편안해 보이는 4인용 테이블을 찾았습니다.*
 
 ![](../img/coffee-shop-4.png)
 
-*The Barista received the coffee order which you ordered from the counter staff. He brewed the beans, prepared the milk and made the coffee.*
+*바리 스타는 카운터 직원에게 주문한 커피를 받았습니다. 그는 커피를 끓이고 우유를 준비하고 커피를 만들었습니다.*
 
 ![](../img/coffee-shop-5.png)
 
-*A waiter delivered the coffee to you with a smile.*
+*웨이터가 미소를 지으며 커피를 가져다주었습니다.*
 
 ![](../img/coffee-shop-6.png)
 
-*About half an hour later, your colleague arrived and began the discussion on the marketing proposal.*
+*약 30분 후 동료가 도착하여 마케팅 제안에 대한 논의를 시작했습니다.*
 
 ![](../img/coffee-shop-7.png)
 
-*You had a great discussion and left with several new ideas. The cafe waiter cleaned the table in preparation for the next customer.*
+*좋은 토론을 하고 몇 가지 새로운 아이디어를 찾았습니다. 카페 웨이터는 다음 손님을 위해 테이블을 청소했습니다.*
 
-That's the scenario for the teatime, let's crunch the truth which happened in the story in the next section.
+이것이 티타임의 시나리오입니다. 다음 섹션의 이야기에서 일어난 진실을 깨뜨리자.
 
-[Next: 03 Roles, Commands and Events Mapping >](../03-roles-commands-events-mapping/README.md)
+[다음 : 03 역할, 명령 및 이벤트 매핑>](../03-roles-commands-events-mapping/README.md)
