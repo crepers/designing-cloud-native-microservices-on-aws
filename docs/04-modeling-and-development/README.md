@@ -1,14 +1,14 @@
-_[< back to 03 Roles, Commands and Event Mapping](../03-roles-commands-events-mapping/README.md)_
+_[< 03 역할, 명령 및 이벤트 매핑으로 돌아가기](../03-roles-commands-events-mapping/README.md)_
 
-## Modeling and Development
+## 모델링 및 개발
 
 ![](../img/coffeeshop-ddd-subdomains.jpg)
 
-Now, you have the whole story, bounded context and **just-enough** aggregates, commands, and events. It's time to develop domain model to proof crunched model is correct or not.
+이제 전체 스토리, 제한된 컨텍스트 및 **충분한** 애그리거트(Aggregate), 명령 및 이벤트가 있습니다. 이제 도메인 모델을 개발하여 크런치된 모델(crunched model)이 올바른지를 증명해야 할 때입니다.
 
-> Design & Develop model iteratively and incrementally is recommended, never to run this workshop in a waterfall style, that's spent lots of time but encounter uncontrollable surprise at last-minute.
+> 디자인 & 개발 모델을 반복적으로, 점진적으로 진행하는 것이 좋습니다. 이 워크숍을 폭포식으로 운영하지 않는 것이 좋습니다. 많은 시간을 보냈지만 마지막 순간에 통제할 수 없는 놀라움을 경험하게 됩니다.
 
-### Specification by Example
+### 예제 별 사양
 
 ```java
 Feature: Order Americano in seat
@@ -23,19 +23,17 @@ Feature: Order Americano in seat
 
 ```
 
-Want to have concrete requirements scenario? **The only way is to talk about an example.**
+구체적인 요구 사항 시나리오를 원하십니까? **유일한 방법은 예제에 대해 이야기하는 것입니다.**
 
-A living doucment help team to collaborate in the same understanding by example.
+실제 문서는 팀이 예에 따라 동일한 이해로 협력할 수 있도록 도와줍니다.
 
-Try to read the feature and scenario as above, all of the stakeholders could read and understand it, there is no technical term explained there, which is a good way to talk with stakeholder.
+위와 같이 특징과 시나리오를 읽으십시오. 모든 이해관계자가 읽고 이해할 수 있으며, 거기에 기술 용어가 설명되어 있지 않으므로 이해 관계자와 대화하기 좋은 방법입니다.
 
-Team should co-work on these documents, once the examples confirmed, developers could leverage it to generate a unit test code skeleton, and implement it accordingly.
+팀은 예를 확인한 후, 개발자가 이 문서를 활용하여 단위 테스트 코드 골격을 생성하고 이에 따라 이를 구현할 수 있도록 이러한 문서에 협력해야 합니다.
 
+### 단위 테스트 환경 내의 TDD
 
-
-### TDD within Unit Test environment
-
-In this workshop, cucumber-java is in used to run the example.
+이 워크숍에서는 cucumber-java를 사용하여 예제를 실행합니다.
 
 ```java
 package cucumber;
@@ -57,18 +55,18 @@ public class RunCucumberTest {
 
 
 
-### Generate unit test code skeleton
+### 단위 테스트 코드 스켈레톤(skeleton) 생성
 
 ![](../img/run-cucumber-steps.png)
 
 
 
-By running the cucumber-java steps, Java compiler complained that there are no implementation methods regarding **Feature: Order_Americao**.
+cucumber-java 단계를 실행함으로써 Java 컴파일러는 **기능 : Order_Americao**에 대한 구현 방법이 없다고 불평했습니다.
 
-Cucumber complained that all of these scenario were not implemented, you are encourged to imeplement this methods.
+Cucumber는 이러한 모든 시나리오가 구현되지 않았다고 불평했으며 이 방법을 구현하도록 권장합니다.
 
 ```java
-You can implement missing steps with the snippets below:
+아래 코드 조각을 사용하여 누락된 단계를 구현할 수 있습니다.
 
 Given("customer wants to order coffee with the following detail", (io.cucumber.datatable.DataTable dataTable) -> {
     // Write code here that turns the phrase above into concrete actions
@@ -98,9 +96,9 @@ Process finished with exit code 0
 
 
 
-### Implement Domain Model from code Skeleton
+### 코드 스켈레톤에서 도메인 모델 구현
 
-It's a TDD style approach, way to fulfill Feature: Order_Americano steps.
+기능: Order_Americano 단계를 이행하는 TDD 스타일 접근 방식입니다.
 
 ```java
 package cucumber;
@@ -152,27 +150,27 @@ public class OrderAmericanoSteps implements En {
 
 ```
 
-## Design each Microservices in Port-adapter concept
+## 포트 어댑터(Port-adapter) 개념으로 각 마이크로 서비스 설계
 
 ![image](../img/implementation.png)
 
-> The famous Port-Adapter pattern is the best suite for developing microservices. Focus on core domain problem, and switch any infrastructure or communication tools as you need.
+> 유명한 Port-Adapter 패턴은 마이크로 서비스 개발을 위한 최고의 제품군입니다. 핵심 도메인 문제에 집중하고 필요에 따라 인프라 또는 통신 도구를 전환하십시오.
 
 ![image](../img/orderdomain.png)
 
-> For this workshop demo, design a order domain object, and leverage AWS services to do persistent, http request accept and handler, and event propagation.
+>이 워크숍 데모에서는 주문 도메인 객체를 설계하고 AWS 서비스를 활용하여 지속적, http 요청 수락 및 처리를 위한 핸들러, 이벤트 전파를 수행하십시오.
 
-## Using Amazon EventBridge Event as the integration Event
+## Amazon EventBridge Event를 통합 이벤트로 사용
 
-You can easily export a lambda function to accept the incomg command, and do some stuff.
-If cross boundary event did occured in current domain, never call other domain service directly, just publish a cross-domain-event. On AWS, the most appropriate one is using EventBridge Event, it's a near-real-time event, high performance and scalable.
+람다 함수를 쉽게 내보내서(Export) 들어오는 명령을 받아들이고 몇 가지 작업을 수행 할 수 있습니다.
+현재 도메인에서 교차 경계(Cross boundary) 이벤트가 발생한 경우 다른 도메인 서비스를 직접 호출하지 말고 교차 도메인 이벤트를 게시하십시오. AWS에서는 EventBridge Event를 사용하는 것이 가장 적절합니다. 거의 실시간에 가까운 이벤트, 고성능 및 확장 가능성이 뛰어난 이벤트입니다.
 
-## Using DynamoDB as the Write Model/ Read Model persistent Repository
+## 쓰기 모델/읽기 모델 영구 리포지토리로 DynamoDB 사용
 
-Once capture Model with Domain Experts, you can design Write Model first, and create Query usage Read Model.
+도메인 전문가와 함께 모델을 캡처하면 먼저 모델 쓰기를 설계하고 쿼리 사용 모델 읽기를 생성 할 수 있습니다.
 
 
-## Further Information
+## 추가 정보
 
 - Vernon, Vaughn. “Ch. 7, Event Storming.” Domain-Driven Design Distilled, Addison-Wesley, 2016. - https://www.amazon.com/Domain-Driven-Design-Distilled-Vaughn-Vernon/dp/0134434420
 - Brandolini, Alberto. Introducing EventStorming. Leanpub, to be released, eventstorming.com/ - https://leanpub.com/introducing_eventstorming
@@ -188,7 +186,7 @@ Once capture Model with Domain Experts, you can design Write Model first, and cr
 
 
 
-## Special Thanks For
+## 특별한 감사를 전합니다
 
 **Jenson Lee** , plays the role as coffee shop owner
 
@@ -198,4 +196,4 @@ Once capture Model with Domain Experts, you can design Write Model first, and cr
 
 **Kenny Baas-Schwegler** , discuss the aggregate definition and ES workshop running experience sharing
 
-[Next: 05 Deploy Applications by AWS CDK >](../05-deploy-applications-by-cdk/README.md)
+[다음 : 05 AWS CDK로 애플리케이션 배포 >](../05-deploy-applications-by-cdk/README.md)
