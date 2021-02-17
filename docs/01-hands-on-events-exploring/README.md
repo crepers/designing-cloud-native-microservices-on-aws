@@ -1,23 +1,23 @@
-_[< back to EventStorming](../../README.md)_
+_[<EventStorming으로 돌아가기](../../README.md)_
 
-## Hands-on Events Exploring - a simple Event Storming Example
+## 체험 이벤트 탐색 - 간단한 이벤트 스토밍 예제
 
-If you are new to Event Storming, and don't know how to start the domain event exploring journey, you can try thinking about this:
+Event Storming을 처음 접하고 도메인 이벤트 탐색을 시작하는 방법을 모르는 경우 다음 사항에 대해 생각해 볼 수 있습니다.
 
-> Think about all the Events that had occurred from the time you woke up this morning, all the way until now as you are reading this post.
+> 당신이 이 게시물을 읽으면서, 오늘 아침에 일어 났을 때부터 지금까지 발생한 모든 이벤트에 대해 생각해보십시오.
 
-List them down and put each one of these Events into the orange sticky notes.
+이러한 이벤트를 나열하고 각 이벤트를 주황색 스티커 메모에 적습니다.
 
-![Timeline](../img/timelineformorning.png)
+![타임 라인](../ img / timelineformorning.png)
 
-Note that you should use **past-tense** wording to explain what had happened - which are all just facts.
+무슨 일이 일어 났는지 설명하려면 **과거형** 표현을 사용해야합니다. 이는 모두 사실입니다.
 
-**[Challenge for you]** Now, let's add a little twist to what you have. Imagine that you have to attend a meeting today and you are already running late. Can you pick the most essential stickers to complete the "morning journey" on the timeline?
+**[당신을 위한 도전]** 이제 여러분이 가지고 있는 것에 약간의 반전을 더해보도록 하겠습니다. 당신이 오늘 회의에 참석해야 했는데 이미 늦었다고 상상해 보세요. 타임 라인에서 "아침 여정"을 완료하기 위해 가장 필수적인 스티커를 선택할 수 있습니까?
 
-Note the key events that remain on the board. These are the critical path towards "attending a meeting". Translating to software development, consider when a Product Owner pushes a long list of *wish list* into your Product Backlog, how would you go about prioritising them?
+보드에 남아 있는 주요 이벤트에 유의하십시오. 이것이 "회의 참석"을 향한 중요한 길입니다. 소프트웨어 개발로 전환하여 제품 소유자가 긴 *위시리스트* 목록을 제품 백로그에 넣을 경우 우선 순위를 어떻게 지정할 수 있습니까?
 
-This is where this *User Story Mapping* or *Impact Mapping* approach would be valuable. Pick up the most essential ones to work on as first sprint, then continue to explore the story and refine it.
+여기서 *사용자 스토리 매핑* 또는 *영향 매핑* 접근 방식이 중요합니다. 첫 번째 스프린트로 작업해야 할 가장 중요한 요소를 선택한 다음, 계속해서 스토리를 탐색하고 수정하십시오.
 
-Next, let's take a look at a slightly more complex scenario.
+다음으로, 조금 더 복잡한 시나리오를 살펴보겠습니다.
 
-[Next: 02 Coffee shop scenario >](../02-coffee-shop-scenario/README.md)
+[다음 : 02 커피 숍 시나리오>](../02-coffee-shop-scenario/README.md)
