@@ -99,7 +99,7 @@ cdk bootstrap aws://${your-aws-id}/${your-region-todeploy}
 cdk deploy CoffeeShopCodePipeline 
 ```
 
-**이 워크숍 샘플 코드는 Maven에서 관리하는 Libs 종속성인 Quarkus Framework를 사용하여 Java8로 개발되었습니다. 이 CDK CoffeeShopCodePipeline 스택을 실행하면 다음을 확인 수 있습니다. **
+**이 워크숍 샘플 코드는 Maven에서 관리하는 Libs 종속성인 Quarkus Framework를 사용하여 Java8로 개발되었습니다. 이 CDK CoffeeShopCodePipeline 스택을 실행하면 다음을 확인 수 있습니다.**
 
 * ECR - Orders-Web 애플리케이션을 제공하기 위해 Docker 이미지 저장소를 생성합니다.
 * CodeCommit 리포지토리 - 자동 배포용
@@ -221,4 +221,4 @@ REPORT RequestId: acfc1cf1-ba73-402e-921d-2fa2d95af5dc	Duration: 8150.39 ms	Bill
 
 
 
-이제 전체 커피 주문 프로세스 여정을 모두 마쳤습니다. 더 많이 실습하고 싶다면 가능한 한 더 많은 비즈니스 시나리오를 구현하고 **AWS의 클라우드 커피 숍** 을 모두 경험해보세요.
+이제 전체 커피 주문 프로세스 여정을 모두 마쳤습니다. 더 많이 실습하고 싶다면 가능한 한 더 많은 비즈니스 시나리오를 구현하고 **AWS의 클라우드 커피숍** 을 모두 경험해보세요.
