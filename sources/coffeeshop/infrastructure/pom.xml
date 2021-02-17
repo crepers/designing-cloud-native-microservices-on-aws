@@ -76,6 +76,8 @@
         </dependency>
     </dependencies>
     <build>
+    	      <pluginManagement>
+    	
         <plugins>
             <plugin>
                 <groupId>io.quarkus</groupId>
@@ -133,6 +135,7 @@
                 </dependencies>
             </plugin>
         </plugins>
+        </pluginManagement>
     </build>
     <profiles>
         <profile>

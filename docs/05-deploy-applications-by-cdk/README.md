@@ -1,35 +1,32 @@
-[< back to 04 Modeling and Development >](../04-modeling-and-development/README.md)
+[<04 모델링 및 개발로 돌아 가기>](../04-modeling-and-development/README.md)
 
-# Deploy Coffeeshop application through AWS Code* Suite with AWS CDK
+# AWS CDK와 함께 AWS Code* Suite를 통해 Coffeeshop 애플리케이션 배포
 
-**Kudos for your insist learning from this repository. It's time to deploy the applications to real AWS environment.**
-
-
-
+**이 저장소에서 계속 학습할 수 있는 쿠도(Kudos)입니다. 이제 애플리케이션을 실제 AWS 환경에 배포해야 합니다.**
 
 
 ![](../img/EventStormingWorkshop-CDK.jpg)
 
-To deploy applications to AWS, you need to have the following essential tools installed:
+AWS에 애플리케이션을 배포하려면 다음과 같은 필수 도구가 설치되어 있어야 합니다.
 
 * [AWS CLI](https://docs.aws.amazon.com/zh_tw/cli/latest/userguide/cli-chap-install.html)
 * [AWS CDK](https://docs.aws.amazon.com/cdk/latest/guide/getting_started.html)
 
 
 
-## Deploy instruction
+## 배포 지침
 
-### Fork this repo to your own github account
+### 이 저장소(repo)를 자신의 github 계정에 포크
 
-This workshop will leverage Github webhook mechanism to automatically build / deploy application onto aws, so the first step is fork it.
+이 워크숍은 Github 웹훅 메커니즘을 활용하여 애플리케이션을 AWS에 자동으로 빌드/배포하므로 첫 번째 단계는 포크입니다.
 
-Besides, please also update the repo owner information in theis source code:
+또한 소스 코드에서 repo 소유자 정보를 업데이트하십시오.
 
 **EventStormingWorkShop/deployment/coffeeshop-cdk/lib/coffee-shop-code-pipeline.ts**
 
 
 
->  Replace the owner to your github account.
+> 소유자를 github 계정으로 바꿉니다.
 
 ```typescript
 const defaultSource = codebuild.Source.gitHub({
@@ -48,47 +45,45 @@ const defaultSource = codebuild.Source.gitHub({
 
 -----
 
-### Get Github Webhook integration
+### Github Webhook 통합 가져 오기
 
-Open the AWS Codebuild console, and click the **Create build project**, we will leverage this step to setup webhook, but we don't need to really save this build project, please follow the screenshots.
+AWS Codebuild 콘솔을 열고 **Create build project** 를 클릭합니다. 이 단계를 활용하여 webhook을 설정하지만 실제로 빌드 프로젝트를 저장할 필요는 없습니다. 스크린 샷을 따르십시오.
 
-
-
-> Create build project
+> 빌드 프로젝트 생성
 
 ![](../img/setup-webhook.png)
 
 
 
-> Specify source, select github, and then **Click Connect to Github**
+> 소스를 지정하고 github를 선택한 다음 **Github에 연결을 클릭합니다**
 
 ![](../img/specify-source.png)
 
 
 
-> Authorize AWS CodeBuild, click **Authorize aws-codesuite** and confirm **Password**
+> AWS CodeBuild를 승인하고 **Authorize aws-codesuite** 를 클릭하고 **암호** 를 확인합니다.
 
 ![](../img/authorize.png)
 
 
 
-> Get connected with Github
+> Github에 연결합니다.
 
 ![](../img/get-connected.png)
 
 
 
-**Now, your github account is get connected with aws-codesuite, you don't need to save this code project, just cancel it. These steps just for webhook authorization.**
+**이제 github 계정이 aws-codesuite에 연결되었으므로 이 코드 프로젝트를 저장할 필요없이 취소만하면 됩니다. 이 단계는 웹훅 인증만을 위한 것입니다.**
 
 -----
 
-### Deploy infrastructure and Application with Code* family CI/CD pipeline by CDK
+### CDK로 Code* family를 이용하여 CI/CD 파이프 라인을 사용한 인프라 및 애플리케이션 배포
 
-**By running this CDK application, You will get a standard VPC with 3 Availablity Zones environment, and one NATGateway serving private subnets.**
+**이 CDK 애플리케이션을 실행하면 3 개의 가용성 영역 환경이있는 표준 VPC와 프라이빗 서브넷을 제공하는 하나의 NATGateway가 제공됩니다.**
 
-**Besides, in order to have an ease of use container orcheration service, an ECS Cluster with Fargate mode is also created.**
+**또한, 컨테이너 오케스트레이션 서비스를 쉽게 사용할 수 있도록 Fargate 모드의 ECS 클러스터도 생성됩니다.**
 
-### Deploy Application by Code* family
+### Code* family를 이용한 애플리케이션 배포
 
 ```shell script
 cd deployment/coffeeshop-cdk
@@ -104,15 +99,15 @@ cdk bootstrap aws://${your-aws-id}/${your-region-todeploy}
 cdk deploy CoffeeShopCodePipeline 
 ```
 
-**This workshop sample code is developed in Java8 with Quarkus Framework, Libs dependency managed by Maven. By running this CDK CoffeeShopCodePipeline stack, You will have:**
+**이 워크숍 샘플 코드는 Maven에서 관리하는 Libs 종속성인 Quarkus Framework를 사용하여 Java8로 개발되었습니다. 이 CDK CoffeeShopCodePipeline 스택을 실행하면 다음을 확인 수 있습니다. **
 
-* ECR - Will create a Docker Image repository to serve Orders-Web application.
-* CodeCommit Repository - for auto deployment
-* CodeBuild - Get Github WebHooked project, build source code, build docker image, Push image to ECR,  deploy **Orders-web** Fargate Service, deploy **coffee-sls Lambda Function**, create **Dynamodb Table -{ Order, Coffee}**, create Event Rule in default **Amazon EventBridge** ..etc.
+* ECR - Orders-Web 애플리케이션을 제공하기 위해 Docker 이미지 저장소를 생성합니다.
+* CodeCommit 리포지토리 - 자동 배포용
+* CodeBuild - Github WebHooked 프로젝트 가져오기, 소스코드 빌드, Docker 이미지 빌드, ECR에 이미지 푸시, **Orders-web** Fargate 서비스 배포, **coffee-sls Lambda 함수** 배포, **Dynamodb 테이블 생성 - { Order, Coffee}**, 기본 **Amazon EventBridge** 에서 이벤트 규칙을 만듭니다. 기타 등등..
 
 
 
-**Deploy Result**
+**배포 결과**
 
 ```shell
 Outputs:
@@ -139,8 +134,7 @@ Stack ARN:
 arn:aws:cloudformation:us-west-2:584518143473:stack/CoffeeShopCodePipeline/f10c0520-0618-11ea-8122-023709c486f0
 ```
 
-Do remember to create a ["imagedefinitions.json"](https://docs.aws.amazon.com/codepipeline/latest/userguide/file-reference.html#pipelines-create-image-definitions) file and git add/push into CodeCommit repository "EventStormingWorkshop" (that has been created as part of the deployment above) with the following value:
-
+["imagedefinitions.json"](https://docs.aws.amazon.com/codepipeline/latest/userguide/file-reference.html#pipelines-create-image-definitions) 파일을 만들고 CodeCommit 리포지토리에 git add/push 합니다. "EventStormingWorkshop"(위 배포의 일부로 생성됨)은 다음 값을 사용합니다.
 ```
 [
   {
@@ -151,14 +145,14 @@ Do remember to create a ["imagedefinitions.json"](https://docs.aws.amazon.com/co
 ```
 
 
-### Way to Deploy applications 
+### 애플리케이션 배포 방법
 
-You could deploy these applications via two approach: 
+두 가지 방법을 통해 이러한 애플리케이션을 배포 할 수 있습니다.
 
-1. At first time, self manually deploy application in CodeBuild service, just to select the CodeBuild project and click the **start build** button, then the deployment process will be started.
-2. Anytime, if you make any chang on the EventStormingWorkshop repository on github, while you commit and push  to  master branch, then the CodeBuild service will automatically build it and trigger the codepipeline to deploy all these applications.
+1. 처음에는 CodeBuild 서비스에서 애플리케이션을 직접 직접 배포하여 CodeBuild 프로젝트를 선택하고 **빌드 시작** 버튼을 클릭하면 배포 프로세스가 시작됩니다.
+2. 언제든 github의 EventStormingWorkshop 리포지토리에서 변경을 수행하는 동안 커밋하고 마스터 브랜치로 푸시하면 CodeBuild 서비스가 자동으로 이를 빌드하고 코드 파이프 라인을 트리거하여 이러한 모든 애플리케이션을 배포합니다.
 
-### Setup Lambda function trigger with EventBridge
+### EventBridge로 Lambda 함수 트리거 설정
 
 ```shell
 targetArn=$(aws lambda get-function --function-name coffee-sls-OrderCreatedHandler | jq '.Configuration.FunctionArn')
@@ -175,11 +169,11 @@ aws lambda add-permission \
 	--source-arn $ruleArn
 ```
 
-### Run Test
+### 테스트 실행
 
-**As all of the setting done, now you could hit the url which you created to make an coffee order:**
+**모든 설정이 완료되었으므로 이제 커피 주문을 위해 만든 URL을 입력 할 수 있습니다.**
 
-The **Orders-web** service endpoint is the Stack output - **CoffeeShopCodePipeline.AlbSvcServiceURLxxxx**
+**Orders-web** 서비스 엔드 포인트는 스택 출력에서 확인할 수 있습니다 - **CoffeeShopCodePipeline.AlbSvcServiceURLxxxx**
 
 ```shell
 curl --header "Content-Type: application/json" \                                                                                            
@@ -191,13 +185,12 @@ Result :
 {"items":[{"productId":"5678","qty":2,"price":200,"fee":400}],"status":0,"id":"ord-20191126-5906","createdDate":1574801783.400000000,"modifiedDate":null}
 ```
 
-**Check the order table in DynamoDB**
+**DynamoDB에서 주문(order) 테이블 확인**
 
 ![](../img/order-table-items.png)
 
-**Check the lambda function(Order created event Handler) logs**
-
-Visit Cloudwatch Service web page, search log groups : ***/aws/lambda/coffee-sls-OrderCreatedHandler***
+**람다 함수 (주문 생성 이벤트 핸들러) 로그 확인**
+Cloudwatch 서비스 콘솔에서, 로그 그룹 검색 : ***/aws/lambda/coffee-sls-OrderCreatedHandler***
 
 ```shell script
 START RequestId: acfc1cf1-ba73-402e-921d-2fa2d95af5dc Version: $LATEST
@@ -222,11 +215,10 @@ END RequestId: acfc1cf1-ba73-402e-921d-2fa2d95af5dc
 REPORT RequestId: acfc1cf1-ba73-402e-921d-2fa2d95af5dc	Duration: 8150.39 ms	Billed Duration: 8200 ms	Memory Size: 512 MB	Max Memory Used: 156 MB	Init Duration: 887.71 ms
 ```
 
-**Check the coffee table in DynamoDB**
+** DynamoDB에서 커피9(coffee) 테이블 확인 **
 
 ![](../img/coffee-table-items.png)
 
 
 
-Now, you have gone through all of the whole coffee ordering process journey, in case you would like to hands-on more, just implement more business scenario as you can, and taste all these **Cloud coffeeshop on AWS.**
-
+이제 전체 커피 주문 프로세스 여정을 모두 마쳤습니다. 더 많이 실습하고 싶다면 가능한 한 더 많은 비즈니스 시나리오를 구현하고 **AWS의 클라우드 커피 숍** 을 모두 경험해보세요.

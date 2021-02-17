@@ -21,7 +21,7 @@ public class Coffee extends AggregateRoot<CoffeeId> {
     @Getter
     @Setter(AccessLevel.PRIVATE)
     List<CoffeeItem> coffeeItems;
-
+    
     @Getter
     @Setter(AccessLevel.PRIVATE)
     String productId;
