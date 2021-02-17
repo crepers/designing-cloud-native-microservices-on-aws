@@ -8,7 +8,7 @@ Event Storming을 처음 접하고 도메인 이벤트 탐색을 시작하는 �
 
 이러한 이벤트를 나열하고 각 이벤트를 주황색 스티커 메모에 적습니다.
 
-![타임 라인](../ img / timelineformorning.png)
+![타임 라인](../img/timelineformorning.png)
 
 무슨 일이 일어 났는지 설명하려면 **과거형** 표현을 사용해야합니다. 이는 모두 사실입니다.
 
