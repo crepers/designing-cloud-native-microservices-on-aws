@@ -40,6 +40,7 @@
     <!-- sub modules -->
     <modules>
         <module>ddd-commons</module>
+        <module>service-discovery</module>
         <module>coffee-application</module>
         <module>coffee-domain</module>
         <module>coffee-web</module>
@@ -52,7 +53,6 @@
         <module>orders-domain</module>
         <module>orders-web</module>
         <module>infrastructure</module>
-        <module>service-discovery</module>
     </modules>
 
     <dependencyManagement>
